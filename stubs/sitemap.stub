@@ -1,0 +1,16 @@
+<?php
+namespace App\Seo\Sitemap;
+
+use IMW\LaravelSeo\AbstractSitemapGenerator;
+
+class {name} extends AbstractSitemapGenerator
+{
+
+	public function generate($map): void
+	{
+		foreach (Model::get() as $model)
+		{
+			// $map->loc()
+		}
+	}
+}
