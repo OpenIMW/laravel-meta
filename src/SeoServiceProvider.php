@@ -38,8 +38,6 @@ class SeoServiceProvider extends ServiceProvider
 
 			return OnPage::build($context);
 		});
-
-		require ('/home/mohamed/ws/dev/server/flycart/vendor/imw/laravel-seo/vendor/autoload.php');
 	}
 
 	/**
