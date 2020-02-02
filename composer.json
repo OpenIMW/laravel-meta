@@ -9,7 +9,6 @@
 			"email": "bm9qdw5r@gmail.com"
 		}
 	],
-	"minimum-stability": "dev",
 	"require":
 	{
 		"php": ">=7.2",
@@ -23,6 +22,7 @@
 		}
 	},
 	"prefer-stable": true,
+	"minimum-stability": "dev",
 	"extra":
 	{
 		"laravel": {
