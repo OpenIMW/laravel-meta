@@ -8,7 +8,7 @@ return
 		'index_name' => 'index.xml',
 		'save_path' => public_path('/sitemaps'),
 		'sitemaps_url' => config('app.url') . '/sitemaps'
-	]
+	],
 
 	'sitemaps' =>
 	[

@@ -15,7 +15,10 @@ class SeoServiceProvider extends ServiceProvider
 	{
 		if ($this->app->runningInConsole()) {
 
-			$this->commands([Commands\SitemapMakerCommand::class]);
+			$this->commands([
+				Commands\SitemapMakerCommand::class,
+				Commands\OnPageMakerCommand::class
+			]);
 		}
 
 		$this->publishes(
@@ -27,8 +30,16 @@ class SeoServiceProvider extends ServiceProvider
 
 		Blade::directive('seo', function($context)
 		{
+			$context = trim(trim($context, '"'), "'");
+
+			if ($context[0] === '$') {
+				// var
+			}
+
 			return OnPage::build($context);
 		});
+
+		require ('/home/mohamed/ws/dev/server/flycart/vendor/imw/laravel-seo/vendor/autoload.php');
 	}
 
 	/**
