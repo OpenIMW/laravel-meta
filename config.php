@@ -12,7 +12,14 @@ return
 
 	'sitemaps' =>
 	[
-		'\App\Sitemap\ExampleGenerator',
+		'example' => '\App\Sitemap\ExampleGenerator',
+	],
+
+	'onpage' =>
+	[
+		'home' => 'App\Seo\Home',
+
+		'App\Models\Product' => 'App\Seo\Product',
 	],
 
 	# Sitemaps compression
@@ -21,6 +28,6 @@ return
 	# Add disallowed urls to robots.txt
 	'disallow' =>
 	[
-		'*' => ['/excludeed'],
+		'*' => ['/excluded'],
 	]
 ];

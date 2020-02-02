@@ -25,19 +25,9 @@ class SeoServiceProvider extends ServiceProvider
 
 		$this->loadRoutesFrom(dirname(__DIR__) .'/routes.php');
 
-		Blade::directive('seo', function($expr)
+		Blade::directive('seo', function($context)
 		{
-			//
-			// Parse expr and pass options to OnPage::build
-			//
-			// Generate meta tags
-			// @seo([
-			// 	'title' => 'somthing',
-			// 	'description' => 'Page description'
-			// 	'schema' => [$product]
-			// ])
-			//
-
+			return OnPage::build($context);
 		});
 	}
 

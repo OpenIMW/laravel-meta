@@ -1,0 +1,25 @@
+{
+	"name": "imw/laravel-seo",
+	"description": "SEO package for laravel.",
+	"type": "library",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Mohamed Elbahja",
+			"email": "bm9qdw5r@gmail.com"
+		}
+	],
+	"minimum-stability": "dev",
+	"require":
+	{
+		"php": ">=7.2",
+	},
+	"autoload":
+	{
+		"psr-4":
+		{
+			"IMW\\LaravelSeo\\": "src/"
+		}
+	},
+	"prefer-stable": true
+}
