@@ -21,7 +21,7 @@ class SeoServiceProvider extends ServiceProvider
 		$this->publishes(
 		[
 			dirname(__DIR__) .'/config.php' => config_path('seo.php'),
-		]);
+		], 'config');
 
 		$this->loadRoutesFrom(dirname(__DIR__) .'/routes.php');
 
