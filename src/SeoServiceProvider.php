@@ -28,15 +28,9 @@ class SeoServiceProvider extends ServiceProvider
 
 		$this->loadRoutesFrom(dirname(__DIR__) .'/routes.php');
 
-		Blade::directive('seo', function($context)
+		Blade::directive('seo', function($expr)
 		{
-			$context = trim(trim($context, '"'), "'");
-
-			if ($context[0] === '$') {
-				// var
-			}
-
-			return OnPage::build($context);
+			return '<?php \IMW\LaravelSeo\OnPage::build('. $expr .') ?>';
 		});
 	}
 
