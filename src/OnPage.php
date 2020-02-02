@@ -13,7 +13,7 @@ class OnPage
 
 			if (method_exists($context, 'buildOnPage')) return $context->buildOnPage();
 
-			$builder = $config[$context::class] ?? null;
+			$builder = $config[get_class($context)] ?? null;
 		}
 
 		if (! $builder) {
