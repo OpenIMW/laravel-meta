@@ -30,7 +30,7 @@ class SeoServiceProvider extends ServiceProvider
 
 		Blade::directive('seo', function($expr)
 		{
-			return '<?php \IMW\LaravelSeo\OnPage::build('. $expr .') ?>';
+			return '<?php echo \IMW\LaravelSeo\OnPage::build('. $expr .') ?>';
 		});
 	}
 
