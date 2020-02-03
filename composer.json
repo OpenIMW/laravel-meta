@@ -1,5 +1,5 @@
 {
-	"name": "imw/laravel-seo",
+	"name": "imw/laravel-meta",
 	"description": "SEO package for laravel.",
 	"type": "library",
 	"license": "MIT",
