@@ -7,6 +7,10 @@
 		{
 			"name": "Mohamed Elbahja",
 			"email": "bm9qdw5r@gmail.com"
+		},
+		{
+			"name": "Yassine Sedrani",
+			"email": "cxmoro@gmail.com"
 		}
 	],
 	"require":
@@ -24,7 +28,8 @@
 		"psr-4":
 		{
 			"IMW\\LaravelMeta\\Test\\": "tests/"
-		}
+		},
+		"classmap": ["tests/TestCase.php"]
 	},
 	"autoload":
 	{
@@ -47,5 +52,8 @@
 				"IMW\\LaravelMeta\\MetaServiceProvider"
 			]
 		}
+	},
+	"scripts": {
+		"test": "vendor/bin/phpunit --testdox"
 	}
 }
