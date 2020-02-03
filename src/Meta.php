@@ -8,7 +8,7 @@ class Meta
 	public static function generate($context, bool $skipCache = false): string
 	{
 		# Get meta tags from cache, and avoiding generate tags on each request
-		if (env('META_CACHE_ENABLED', false) && $skipCache === false) {
+		if (config('metacache.driver') && $skipCache === false) {
 
 			return Cache::get($context);
 		}

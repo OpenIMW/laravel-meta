@@ -22,7 +22,8 @@ class MetaServiceProvider extends ServiceProvider
 
 		$this->publishes(
 		[
-			dirname(__DIR__) .'/config.php' => config_path('meta.php'),
+			dirname(__DIR__) .'/config/meta.php' => config_path('meta.php'),
+			dirname(__DIR__) .'/config/cache.php' => config_path('metacache.php'),
 		], 'config');
 
 		$this->loadRoutesFrom(dirname(__DIR__) .'/routes.php');

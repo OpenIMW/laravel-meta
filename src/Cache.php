@@ -16,9 +16,9 @@ class Cache
 	{
 		$key = 'meta_'. (is_object($context) ? get_class($context) : $context);
 
-		return Cache::driver(env('META_CACHE_DRIVER', config('cache.default')))
+		return Cache::driver(config('metacache.driver'))
 					->tags('laravel_meta')
-					->remember($key, env('META_CACHE_TTL', 1296000), function() use ($context)
+					->remember($key, config('metacache.ttl'), function() use ($context)
 					{
 						return Meta::generate($context, true);
 					});
@@ -31,7 +31,7 @@ class Cache
 	 */
 	public static function flush(): void
 	{
-		Cache::driver(env('META_CACHE_DRIVER', config('cache.default')))->tags('laravel_meta')->flush();
+		Cache::driver(config('metacache.driver'))->tags('laravel_meta')->flush();
 	}
 
 }
