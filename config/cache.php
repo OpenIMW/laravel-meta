@@ -2,8 +2,8 @@
 
 return
 [
-	'driver' => env('META_CACHE_DRIVER', false),
+    'driver' => env('META_CACHE_DRIVER', false),
 
-	'ttl' => env('META_CACHE_TTL', 1296000),
+    'ttl' => env('META_CACHE_TTL', 1296000),
 
 ];
