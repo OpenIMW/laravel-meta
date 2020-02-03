@@ -1,2 +1,11 @@
-php:
-  preset: laravel
+preset: recommended
+risky: true
+finder:
+  exclude:
+    - vendor
+    - stubs
+  name: "*.php"
+  not-name:
+    - "*.yml"
+    - "*.stub"
+    - "*.md"
