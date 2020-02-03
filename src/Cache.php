@@ -1,7 +1,7 @@
 <?php
 namespace IMW\LaravelMeta;
 
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Cache as LaravelCache;
 
 class Cache
 {
@@ -16,7 +16,7 @@ class Cache
 	{
 		$key = 'meta_'. (is_object($context) ? get_class($context) : $context);
 
-		return Cache::driver(config('metacache.driver'))
+		return LaravelCache::driver(config('metacache.driver'))
 					->tags('laravel_meta')
 					->remember($key, config('metacache.ttl'), function() use ($context)
 					{
@@ -31,7 +31,7 @@ class Cache
 	 */
 	public static function flush(): void
 	{
-		Cache::driver(config('metacache.driver'))->tags('laravel_meta')->flush();
+		LaravelCache::driver(config('metacache.driver'))->tags('laravel_meta')->flush();
 	}
 
 }
