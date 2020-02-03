@@ -12,22 +12,39 @@
 	"require":
 	{
 		"php": ">=7.2",
-		"melbahja/seo": "^1.0"
+		"laravel/framework": "~5.8.0|^6.0"
+	},
+	"require-dev":
+	{
+		"orchestra/testbench": "^4.0",
+		"phpunit/phpunit": "^8.0"
+	},
+	"autoload-dev":
+	{
+		"psr-4":
+		{
+			"IMW\\LaravelMeta\\Test\\": "tests/"
+		}
 	},
 	"autoload":
 	{
 		"psr-4":
 		{
-			"IMW\\LaravelSeo\\": "src/"
+			"IMW\\LaravelMeta\\": "src/"
 		}
+	},
+	"config":
+	{
+		"sort-packages": true
 	},
 	"prefer-stable": true,
 	"minimum-stability": "dev",
 	"extra":
 	{
-		"laravel": {
+		"laravel":
+		{
 			"providers": [
-				"IMW\\LaravelSeo\\SeoServiceProvider"
+				"IMW\\LaravelMeta\\SeoServiceProvider"
 			]
 		}
 	}

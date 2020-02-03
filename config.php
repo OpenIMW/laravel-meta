@@ -2,32 +2,34 @@
 
 return
 [
+	'home' => 'App\Seo\Home',
 
-	'factoryOptions' =>
+	'App\Models\Product' =>
 	[
-		'index_name' => 'index.xml',
-		'save_path' => public_path('/sitemaps'),
-		'sitemaps_url' => config('app.url') . '/sitemaps'
+		'title|og:title|twitter:title' => 'name',
+		'description|twitter:description|og:description' => 'description',
+		'schema' =>
+		[
+			[
+				'@type' => 'BreadcrumbList',
+				'itemListElement' =>
+				[
+					[
+						'@type' => 'ListItem',
+						'position' => 1,
+						'name' => 'Products',
+						'item' => '/products'
+					],
+					[
+						'@type' => 'ListItem',
+						'position' => 2,
+						'name' => 'name',
+						'item' => '/products/path'
+					],
+				]
+			]
+		]
 	],
 
-	'sitemaps' =>
-	[
-		'example' => '\App\Sitemap\ExampleGenerator',
-	],
-
-	'onpage' =>
-	[
-		'home' => 'App\Seo\Home',
-
-		'App\Models\Product' => 'App\Seo\Product',
-	],
-
-	# Sitemaps compression
-	'gzip' => false,
-
-	# Add disallowed urls to robots.txt
-	'disallow' =>
-	[
-		'*' => ['/excluded'],
-	]
+	'App\Models\Book' => 'App\Seo\Book'
 ];

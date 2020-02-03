@@ -1,0 +1,14 @@
+<?php
+namespace App\Seo;
+
+use IMW\LaravelMeta\AbstractMetaGenerator;
+
+class {name} extends AbstractMetaGenerator
+{
+
+	public function generate($cxt): string
+	{
+
+		return $this->toString();
+	}
+}
