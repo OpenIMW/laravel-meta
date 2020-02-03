@@ -26,8 +26,6 @@ class MetaServiceProvider extends ServiceProvider
 			dirname(__DIR__) .'/config/cache.php' => config_path('metacache.php'),
 		], 'config');
 
-		$this->loadRoutesFrom(dirname(__DIR__) .'/routes.php');
-
 		Blade::directive('meta', function($expr)
 		{
 			return '<?php echo \IMW\LaravelMeta\Meta::generate('. $expr .') ?>';
