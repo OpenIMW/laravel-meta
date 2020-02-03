@@ -24,14 +24,15 @@ class TestCase extends OrchestraTestCase
         $app['config']->set('meta', include(__DIR__.'/../config/meta.php'));
     }
 
-	/**
-	 * @param \Illuminate\Foundation\Application $app
-	 * @return array
-	 */
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     *
+     * @return array
+     */
     protected function getPackageProviders($app)
     {
         return [
-			MetaServiceProvider::class,
+            MetaServiceProvider::class,
         ];
     }
 }
