@@ -146,7 +146,11 @@ class Meta
 	{
 		$val = null;
 
-		if (is_array($context)) {
+		if ($value[0] === '\\') {
+
+			return substr($value, 1);
+
+		} elseif (is_array($context)) {
 
 			$val = Arr::get($context, $value);
 
