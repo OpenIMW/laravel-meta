@@ -86,23 +86,28 @@ class Meta
 	{
 		$tags = '';
 
-		foreach ($options as $key => $value)
+		foreach ($options as $option => $value)
 		{
-			switch(true)
+			$option = explode('|', $option);
+
+			foreach ($option as $key)
 			{
-				case starts_with($key, 'og:'):
-					$tag = '<meta property=":k" content=":v" />';
-					break 1;
+				switch(true)
+				{
+					case starts_with($key, 'og:'):
+						$tag = '<meta property=":k" content=":v" />';
+						break 1;
 
-				default:
-					$tag = '<meta name=":k" content=":v">';
+					default:
+						$tag = '<meta name=":k" content=":v">';
+				}
+
+				$tags .= str_replace(
+					[':k', ':v'],
+					[$key, e(static::getFromContext($context, $value))],
+					$tag
+				);
 			}
-
-			$tags .= str_replace(
-				[':k', ':v'],
-				[$key, e(static::getFromContext($context, $value))],
-				$tag
-			);
 		}
 
 		return $tags;
@@ -117,10 +122,6 @@ class Meta
 	 */
 	public static function schemaFromArray( $schema, $context): string
 	{
-		if (is_array($schema) == false) {
-			dump($schema); exit;
-		}
-
 		foreach ($schema as $k => $values)
 		{
 			$schema[$k] = static::schemaGetFromContext($context, $values, function($val) use (&$context)
@@ -145,18 +146,13 @@ class Meta
 	{
 		$val = null;
 
-		if (is_array($value)) {
-			dump($context, $value);
-			exit;
-		}
-
 		if (is_array($context)) {
 
 			$val = Arr::get($context, $value);
 
-		} elseif (is_object($context) && $context instanceof Model) {
+		} elseif (is_object($context)) {
 
-			$val = Arr::get($context->toArray(), $value);
+			$val = $context->$value;
 		}
 
 		return $val ?? $value;
