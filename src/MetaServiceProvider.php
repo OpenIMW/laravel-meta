@@ -16,7 +16,7 @@ class MetaServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->commands([
-                Commands\MetaMakerCommand::class,
+                Commands\MetaMakeCommand::class,
             ]);
         }
 
