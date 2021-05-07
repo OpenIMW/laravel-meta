@@ -84,7 +84,7 @@ class Meta
                 switch (true) {
                     case starts_with($key, 'og:'):
                         $tag = '<meta property=":k" content=":v" />';
-                        break 1;
+                        break;
 
                     default:
                         $tag = '<meta name=":k" content=":v">';
